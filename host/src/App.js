@@ -1,12 +1,19 @@
 import React from "react";
-import { Button } from "antd";
+import { Layout } from "antd";
 import './App.css';
+
+const { Header, Footer, Sider, Content } = Layout;
 
 function App () {
   return (
-    <div>
-      <Button>button</Button>
-    </div>
+    <Layout style={{ height: '100vh' }}>
+      <Header>Header</Header>
+      <Layout>
+        <Sider>Sider</Sider>
+        <Content>Content asfasf</Content>
+      </Layout>
+      <Footer>Footer</Footer>
+    </Layout>
   );
 }
 
