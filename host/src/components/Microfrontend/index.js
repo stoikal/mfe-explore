@@ -54,7 +54,6 @@ class Microfrontend extends Component {
   render () {
     return (
       <div id={this.containerId}>
-        {this.props.slug}
       </div>
     )
   }

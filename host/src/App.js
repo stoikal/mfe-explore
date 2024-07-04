@@ -6,10 +6,10 @@ import './App.css';
 import Microfrontend from "./components/Microfrontend";
 
 const menuMicro = [
-  { path: "/buku/novel", host: "http://localhost:3001" },
-  { path: "/buku/puisi", host: "http://localhost:3001" },
-  { path: "/alat/olahraga", host: "http://localhost:3002" },
-  { path: "/alat/bengkel", host: "http://localhost:3002" },
+  { path: "/alat/olahraga", host: "http://localhost:3001" },
+  { path: "/alat/bengkel", host: "http://localhost:3001" },
+  { path: "/buku/novel", host: "http://localhost:3002" },
+  { path: "/buku/puisi", host: "http://localhost:3002" },
 ]
 
 function createModulSlug(value) {
