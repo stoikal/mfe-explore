@@ -1,16 +1,11 @@
 import React from "react";
-import { Layout, Card } from "antd";
+import { Layout } from "antd";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 import Sidenav from "./components/App/Sidenav";
 import './App.css';
 import Microfrontend from "./components/Microfrontend";
-
-const menuMicro = [
-  { path: "/alat/olahraga", host: "http://localhost:3001" },
-  { path: "/alat/bengkel", host: "http://localhost:3001" },
-  { path: "/buku/novel", host: "http://localhost:3002" },
-  { path: "/buku/puisi", host: "http://localhost:3002" },
-]
+import menuMicro from "./data/menuMicro";
+import Cangkir from "./pages/Cangkir";
 
 function createModulSlug(value) {
   return value.replace(/[`~!@#$%^&*()_|+\-=?;:'",.<>\{\}\[\]\\\/]/gi, "");
@@ -45,6 +40,11 @@ function App () {
                     />
                   )
                 })}
+
+                <Route
+                  path="/cangkir"
+                  component={Cangkir}
+                />
               </Switch>
             </div>
           </Layout.Content>
