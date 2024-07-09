@@ -32,7 +32,12 @@ const navs = [
   {
     name: "Cangkir",
     url: "/cangkir",
-    icon: "hourglass"
+    icon: "coffee"
+  },
+  {
+    name: "Desain",
+    url: "/desain",
+    icon: "build"
   }
 ]
 

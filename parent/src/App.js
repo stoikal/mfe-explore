@@ -8,7 +8,7 @@ import menuMicro from "./data/menuMicro";
 import Cangkir from "./pages/Cangkir";
 
 function createModulSlug(value) {
-  return value.replace(/[`~!@#$%^&*()_|+\-=?;:'",.<>\{\}\[\]\\\/]/gi, "");
+  return value.replace(/[`~!@#$%^&*()_|+\-=?;:'",.<>{}[\]\\/]/gi, "");
 }
 
 function App () {
@@ -25,21 +25,18 @@ function App () {
           <Layout.Content>
             <div style={{ padding: 24 }}>
               <Switch>
-                {menuMicro.map(({ path, host }) => {
-                  const props = {
-                    path,
-                    host,
-                    slug: createModulSlug(host)
-                  }
-
-                  return (
-                    <Route
-                      key={path}
-                      path={path}
-                      render={() => <Microfrontend {...props} />}
-                    />
-                  )
-                })}
+                {menuMicro.map(({ path, host }) => (
+                  <Route
+                    key={path}
+                    path={path}
+                    render={() => (
+                      <Microfrontend
+                        host={host}
+                        slug={createModulSlug(host)}
+                      />
+                    )}
+                  />
+                ))}
 
                 <Route
                   path="/cangkir"

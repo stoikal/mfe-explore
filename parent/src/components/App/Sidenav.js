@@ -6,32 +6,33 @@ import navs from "../../data/navs"
 function Sidenav () {
   const renderMenu = (navs) => {
     return navs.map((navItem) => {
-      if (!navItem.children) {
+      if (navItem.children) {
         return (
-          <Menu.Item key={navItem.name}>
-            <Link to={navItem.url}>
+          <Menu.SubMenu
+            key={navItem.name}
+            title={
               <span>
-                {navItem.icon && (
-                  <Icon type={navItem.icon} />
-                )}
+                <Icon type={navItem.icon} />
                 <span>{navItem.name}</span>
               </span>
-            </Link>
-          </Menu.Item>
+            }
+          >
+            {renderMenu(navItem.children)}
+          </Menu.SubMenu>
         )
       }
+
       return (
-        <Menu.SubMenu
-          key={navItem.name}
-          title={
+        <Menu.Item key={navItem.name}>
+          <Link to={navItem.url}>
             <span>
-              <Icon type={navItem.icon} />
+              {navItem.icon && (
+                <Icon type={navItem.icon} />
+              )}
               <span>{navItem.name}</span>
             </span>
-          }
-        >
-          {renderMenu(navItem.children)}
-        </Menu.SubMenu>
+          </Link>
+        </Menu.Item>
       )
     })
   }
